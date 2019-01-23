@@ -27,15 +27,21 @@ class App extends React.Component {
     this.selectVideo(num);
   }
 
+  // selectVideo(num) {
+  //   this.setState((state) => {
+  //     return { mainVideo: num };
+  //   });
+  // }
+
   selectVideo(num) {
-    this.setState((state) => {
-      return { mainVideo: num };
+    this.setState({ 
+      mainVideo: num 
     });
   }
 
   handleSearch() { //activates on enter key?
     var input = $('input.form-control').val();
-    searchYouTube({key: YOUTUBE_API_KEY, q: input, maxResults: 5, part: 'snippet'}, this.searchHelper);
+    searchYouTube({key: YOUTUBE_API_KEY, q: input, part: 'snippet'}, this.searchHelper);
   }
 
   searchHelper(data) { // works with this.state
@@ -72,14 +78,7 @@ class App extends React.Component {
     );
   }
 
-  otherfunction() {
-
-  }
 }
-
-App.propTypes = {
-  // process example video data
-};
 //comment more than enough
 //       line 13 <div><h5><em>videoList</em> view goes here</h5></div> 
 
